@@ -18,6 +18,10 @@ monitoring:
   # specify cutsom values set
   # values:
   #   foo: bar
+  #
+rke:
+  localClusterAuthEndpoint:
+    enabled: false
 
 
 nodepools:
