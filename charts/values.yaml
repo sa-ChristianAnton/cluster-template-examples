@@ -8,7 +8,7 @@ cloudCredentialSecretName: "keller"
 # specify cloud provider, options are amazonec2, digitalocean, azure, vsphere or custom
 cloudprovider: "harvester"
 
-kubernetesVersion: ""
+kubernetesVersion: "v1.24.4+rke2r1"
 
 # enable monitoring
 monitoring:
