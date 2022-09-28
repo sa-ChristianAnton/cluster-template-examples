@@ -19,7 +19,7 @@ spec:
   kubernetesVersion: {{ .Values.kubernetesVersion }}
   {{- end }}
   # enable network policy
-  enableNetworkPolicy: true
+  enableNetworkPolicy: {{ .Values.networkSeparation.enabled }}
   # specify rancher helm chart values deployed into downstream cluster
   # rancherValues: {}
   rkeConfig:
