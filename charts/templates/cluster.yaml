@@ -23,6 +23,12 @@ spec:
   # specify rancher helm chart values deployed into downstream cluster
   # rancherValues: {}
   rkeConfig:
+    {{- if eq $.Values.cloudprovider "harvester" }}
+    chartValues:
+      harvester-cloud-provider:
+        cloudConfigPath: /var/lib/rancher/rke2/etc/config-files/cloud-provider-config
+        clusterName: {{ .Values.cluster.name }}
+    {{- end }}
     {{- if ne .Values.cloudprovider "custom" }}
     machinePools:
     {{- if .Values.nodepools }} {{ range $index, $nodepool := .Values.nodepools }}
@@ -140,8 +146,12 @@ spec:
       # Add additional hostnames or IPv4/IPv6 addresses as Subject Alternative Names on the server TLS cert
       # tls-san: []
 
-    # machineSelectorConfig:
-    # - config:
+{{ if eq $.Values.cloudprovider "harvester" }}
+    machineSelectorConfig:
+    - config:
+        cloud-provider-name: harvester
+        protect-kernel-defaults: false
+{{ end }}
         # Node name
         # node-name: ""
         # Disable embedded containerd and use alternative CRI implementation
