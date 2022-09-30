@@ -1,6 +1,6 @@
 # cluster specific values
 cluster:
-  name: my-nice-cluster
+  name: helm-deployed-rke2
 
 # specify cloud credential secret name, do not need to be provided if using custom driver
 cloudCredentialSecretName: "cattle-global-data:cc-b6hkn"
