@@ -3,12 +3,12 @@ cluster:
   name: helm-deployed-rke2
 
 # specify cloud credential secret name, do not need to be provided if using custom driver
-cloudCredentialSecretName: "cattle-global-data:cc-b6hkn"
+cloudCredentialSecretName: "cattle-global-data:cc-swmvt"
 
 # specify cloud provider, options are amazonec2, digitalocean, azure, vsphere or custom
 cloudprovider: "harvester"
 
-kubernetesVersion: "v1.24.4+rke2r1"
+kubernetesVersion: "v1.24.9+rke2r2"
 
 # enable monitoring
 monitoring:
@@ -46,6 +46,6 @@ nodepools:
   cpuCount: 4
   memorySize: 8
   networkName: default/lab
-  imageName: default/image-6jv96
+  imageName: default/image-vvtbr
   vmNamespace: default
   sshUser: ubuntu
